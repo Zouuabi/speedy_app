@@ -1,0 +1,20 @@
+
+.container{
+
+width: 100vw;
+height: 100vh;
+color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.indicator{
+width: 60vw;
+}
+
+html,
+body {
+    background-color: #161519
+}
+
+
