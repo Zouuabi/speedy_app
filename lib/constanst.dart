@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 const TextStyle kTitleStyle = TextStyle(
-    fontSize: 70,
-    fontFamily: 'Niconne',
-    color: Color.fromARGB(255, 25, 25, 25));
-const TextStyle kSubtitleStyle = TextStyle(fontFamily: 'Roboto', fontSize: 15);
+    fontSize: 70, fontFamily: 'Mouse', color: Color.fromARGB(255, 25, 25, 25));
+const TextStyle kSubtitleStyle = TextStyle(fontFamily: 'Mouse', fontSize: 20);
 
 BoxDecoration kBigBoxDecoration = BoxDecoration(
   color: Colors.grey.shade300,

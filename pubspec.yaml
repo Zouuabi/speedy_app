@@ -77,9 +77,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Niconne
+    - family: Mouse
       fonts:
-        - asset: fonts/Niconne-Regular.ttf
+        - asset: fonts/MouseMemoirs-Regular.ttf
 
   #   - family: Trajan Pro
   #     fonts:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constanst.dart';
+import '../../../constanst.dart';
 
 class Indicator extends StatelessWidget {
   const Indicator({
@@ -8,10 +8,11 @@ class Indicator extends StatelessWidget {
     required this.child,
     required this.index,
     required this.textIndex,
+    required this.width,
   }) : super(key: key);
   final int index;
   final int textIndex;
-
+  final double width;
   final String child;
 
   @override
@@ -26,9 +27,8 @@ class Indicator extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
                 color: index < textIndex ? Colors.green : Colors.black,
-                fontSize: 25,
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Niconne'),
+                fontSize: width * 0.02,
+                fontFamily: 'Mouse'),
           ),
         ));
   }
