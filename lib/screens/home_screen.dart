@@ -17,24 +17,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  /// I just use this variable to simulates the seconds
+  /// *I just use this variable to simulates the seconds
   int time = 0;
 
   int textIndex = 0;
 
-  /// this flag is used to control the timer
-  /// if [isTimerStopped] = true => timer is active
-  /// if [isTimerStopped] = false => timer is canceled
+  /// *this flag is used to control the timer
+  /// * if [isTimerStopped] = true => timer is active
+  /// *if [isTimerStopped] = false => timer is canceled
 
   bool isTimerStopped = false;
 
-  /// Once the user start typing it will be true
+  /// * Once the user start typing it will be true
   bool isFirstTime = true;
 
-  /// number of  [characters] typed by the user
+  /// * number of  [characters] typed by the user
   int characters = 100;
 
-  /// splitting the text into a list of char
+  /// * splitting the text into a list of char
   List<String> splitedText = [];
 
   void restart() {
@@ -145,10 +145,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: kBigBoxDecoration,
                 child: Column(
                   children: [
-                    Text("Speedy",
-                        style: kTitleStyle.copyWith(
-                          color: Colors.cyan,
-                        )),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("Speedy",
+                          style: kTitleStyle.copyWith(
+                            color: Colors.cyan,
+                          )),
+                    ),
+
+                    /// * Bar that displays Current speed Accuracy and score
+
                     Container(
                       decoration: kBigBoxDecoration,
                       margin: const EdgeInsets.only(
@@ -173,18 +179,28 @@ class _HomeScreenState extends State<HomeScreen> {
                             const Text("Score: 800", style: kSubtitleStyle)
                           ]),
                     ),
+
+                    /// * Text Section
+
                     Container(
                       padding: const EdgeInsets.all(15),
                       width: size.width * 0.6,
 
                       decoration: kBigBoxDecoration,
-                      // ToDO : I have to implement the grid builder to be able to
-                      //control the that text return to new line
+
+                      /// ToDO : I have to implement the grid builder to be able to
+                      /// Todo : control the that text return to new line
                       child: Wrap(
                         children: getWrapItems(),
                       ),
                     ),
+
+                    ///* Divider
+                    ///
                     SizedBox(height: size.height * 0.07),
+
+                    /// * Restart Button
+
                     NeumorphicButton(
                       child: const Text(
                         'Restart',
