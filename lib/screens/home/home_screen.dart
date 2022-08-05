@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void brain(BuildContext context, String key) {
-    if (textIndex == 10) {
+    if (textIndex == splitedText.length) {
       String finalSpeed = getSpeed();
       Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) {
         return ResultScreen(
