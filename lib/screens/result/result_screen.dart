@@ -15,7 +15,7 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: kPrimaryColor,
       body: Center(
         child: Container(
           decoration: kBigBoxDecoration,
@@ -25,16 +25,18 @@ class ResultScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Your speed is $speed & your accuracy is $accuracy ',
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                'Your speed is $speed and your accuracy is $accuracy ',
+                style: const TextStyle(
+                    fontSize: 60, fontFamily: 'Mouse', color: Colors.white70),
               ),
               const SizedBox(height: 20),
               NeumorphicButton(
                 child: const Text(
                   'Play Again',
                   style: TextStyle(
-                      fontSize: 25, color: Colors.cyan, fontFamily: 'Mouse'),
+                      fontSize: 25,
+                      color: kButtonTextColor,
+                      fontFamily: 'Mouse'),
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(context,

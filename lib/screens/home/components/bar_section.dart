@@ -19,7 +19,7 @@ class ResultBar extends StatelessWidget {
       margin: const EdgeInsets.only(top: 20, bottom: 20),
       // margin: const EdgeInsets.only(
       //     top: 20, bottom: 10, right: 350),
-      width: size.width * 0.3,
+      width: 400,
       height: 50,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Text(

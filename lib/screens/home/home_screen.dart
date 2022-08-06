@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void brain(BuildContext context, String key) {
-    if (textIndex == splitedText.length) {
+    if (textIndex == splitedText.length - 1) {
       String finalSpeed = getSpeed();
       Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) {
         return ResultScreen(
@@ -153,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
 
       child: Scaffold(
-          backgroundColor: Colors.grey.shade300,
+          backgroundColor: kPrimaryColor,
           body: Center(
             child: Container(
               width: size.width * 0.7,
@@ -163,10 +163,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(top: 20.0, bottom: 80),
                       child: Text("Speedy",
                           style: kTitleStyle.copyWith(
-                            color: Colors.cyan,
+                            color: Colors.white70,
                           )),
                     ),
 
@@ -184,19 +184,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     /// * Restart Button
 
-                    NeumorphicButton(
-                      child: const Text(
-                        'Restart',
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.cyan,
-                            fontFamily: 'Mouse'),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          restart();
-                        });
-                      },
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        NeumorphicButton(
+                          child: const Text(
+                            'Restart',
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: kButtonTextColor,
+                                fontFamily: 'Mouse'),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              restart();
+                            });
+                          },
+                        ),
+                        const SizedBox(width: 50),
+                        NeumorphicButton(
+                          child: const Text(
+                            'Change Text',
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: kButtonTextColor,
+                                fontFamily: 'Mouse'),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              restart();
+                              getRandomText();
+                            });
+                          },
+                        ),
+                      ],
                     ),
                   ],
                 ),
