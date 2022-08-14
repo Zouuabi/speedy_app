@@ -30,7 +30,7 @@ class Indicator extends StatelessWidget {
             child,
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: index < textIndex ? Colors.green : Colors.white70,
+                color: index < textIndex ? Colors.green : Colors.white,
                 fontSize: index == textIndex ? width * 0.024 : width * 0.02,
                 fontFamily: 'Mouse'),
           ),

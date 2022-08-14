@@ -23,7 +23,7 @@ class ResultBar extends StatelessWidget {
       height: 50,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Text(
-          "Speed:${speed} ",
+          "Speed:$speed ",
           style: kSubtitleStyle,
         ),
         Text(

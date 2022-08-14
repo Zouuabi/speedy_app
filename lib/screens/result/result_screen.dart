@@ -27,7 +27,7 @@ class ResultScreen extends StatelessWidget {
               Text(
                 'Your speed is $speed and your accuracy is $accuracy ',
                 style: const TextStyle(
-                    fontSize: 60, fontFamily: 'Mouse', color: Colors.white70),
+                    fontSize: 60, fontFamily: 'Mouse', color: Colors.white),
               ),
               const SizedBox(height: 20),
               NeumorphicButton(

@@ -166,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.only(top: 20.0, bottom: 80),
                       child: Text("Speedy",
                           style: kTitleStyle.copyWith(
-                            color: Colors.white70,
+                            color: Colors.white,
                           )),
                     ),
 
