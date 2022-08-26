@@ -2,14 +2,15 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:speedy/screens/home/components/indicator.dart';
-import 'package:speedy/text.dart';
-import '../../constanst.dart';
+
+import '../constanst.dart';
 import '../result/result_screen.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart'
     show NeumorphicButton;
 
+import '../text.dart';
 import 'components/bar_section.dart';
+import 'components/indicator.dart';
 import 'components/text_section.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   /// *  if [isTimerStopped] = true => timer is active
   /// *  if [isTimerStopped] = false => timer is canceled
 
-  bool isTimerStopped = false;
+  bool isTimerStopped = true;
 
   /// * Once the user start typing it will be true
   bool isFirstTime = true;
@@ -44,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void restart() {
     setState(() {
-      isTimerStopped = false;
+      isTimerStopped = true;
       textIndex = 0;
       characters = 100;
       isFirstTime = true;
@@ -70,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Timer.periodic(const Duration(seconds: 1), (timer) {
         setState(() {
           ++time;
-          if (!isTimerStopped) {
+          if (isTimerStopped) {
             timer.cancel();
             time = 0;
           }
@@ -105,10 +106,13 @@ class _HomeScreenState extends State<HomeScreen> {
   void brain(BuildContext context, String key) {
     if (textIndex == splitedText.length - 1) {
       String finalSpeed = getSpeed();
+
+      isTimerStopped = false;
       Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) {
         return ResultScreen(
           speed: finalSpeed,
           accuracy: getAcc(),
+          score: Random().nextInt(100).toString(),
         );
       })));
     } else if (key.toLowerCase() == splitedText[textIndex]) {
@@ -139,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
         if (isFirstTime) {
           charterForAccuracy = splitedText.length;
           characters = 0;
-          isTimerStopped = true;
+          isTimerStopped = false;
           isFirstTime = false;
           timer();
         }
@@ -158,21 +162,28 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               width: size.width * 0.7,
               height: double.infinity,
-              decoration: kBigBoxDecoration,
+              decoration: kBoxDecoration,
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20.0, bottom: 80),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 20.0, bottom: 50),
                       child: Text("Speedy",
-                          style: kTitleStyle.copyWith(
+                          style: TextStyle(
+                            letterSpacing: 10,
+                            fontFamily: 'Permanent Marker',
+                            fontSize: 70,
                             color: Colors.white,
                           )),
                     ),
 
                     /// * Bar that displays Current speed Accuracy and score
 
-                    ResultBar(size: size, acc: getAcc(), speed: getSpeed()),
+                    ResultBar(
+                        size: size,
+                        acc: getAcc(),
+                        speed: getSpeed(),
+                        score: '911'),
 
                     /// * Text Section
 

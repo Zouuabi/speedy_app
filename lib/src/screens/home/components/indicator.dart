@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constanst.dart';
+import '../../constanst.dart';
 
 class Indicator extends StatelessWidget {
   const Indicator({
@@ -21,16 +21,18 @@ class Indicator extends StatelessWidget {
         width: 18,
         height: 38,
         decoration: index == textIndex
-            ? kBigBoxDecoration.copyWith(
-                color: const Color.fromARGB(255, 26, 25, 25),
-                borderRadius: BorderRadius.circular(10))
+            ? kBoxDecoration.copyWith(
+                color: Color.fromARGB(255, 1, 65, 25),
+                borderRadius: BorderRadius.circular(30))
             : null,
         child: Center(
           child: Text(
             child,
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: index < textIndex ? Colors.green : Colors.white,
+                color: index < textIndex
+                    ? const   Color.fromARGB(255, 0, 255, 8)
+                    : Colors.white,
                 fontSize: index == textIndex ? width * 0.024 : width * 0.02,
                 fontFamily: 'Mouse'),
           ),
